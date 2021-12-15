@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background-color: #000; /*var(--color-count-home); */
     width: 100%;
     color: #FFF;
@@ -42,7 +42,7 @@ p#enter {
 }
 
 input#player-name {   
-    width: 20%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     font-size: 1.5rem;
@@ -52,7 +52,7 @@ input#player-name {
 
 #home-title h1 {
     margin-bottom: 10vh;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #000;
     font-family:'Lato';
     background-color:  var(---color-nav-home);
@@ -90,7 +90,7 @@ button#restart{
     border: none;
     padding: 16px 32px;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 
@@ -103,7 +103,7 @@ button#restart{
 }
 
 #question p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: var(--space-l); 
     font-weight: 100;   
     color: var(--color-text-question);
@@ -112,7 +112,7 @@ button#restart{
 #question h1 {
     color: var(--color-text-question);  
     margin-bottom: 10px;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 #image-questions {
@@ -142,7 +142,7 @@ button#restart{
 
 .answer p {
     color: #FFF;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 100;  
     width: 100%;
     cursor: pointer;
@@ -194,6 +194,9 @@ button#restart{
     align-items: center;
 }
 
+#hotel-count {
+    font-size: 3rem;
+}
 
 
  #hotel #answers {
@@ -239,6 +242,10 @@ button#restart{
     
 }
 
+#beach-count {
+    font-size: 3rem;
+}
+
 
 #beach header {
     display: flex;
@@ -264,7 +271,7 @@ button#restart{
 
 #beach h1 {
 margin-bottom: 10px;
-font-size: 3rem;
+font-size: 2.5rem;
 color:var(--color-title-beach);
 }
 
@@ -313,6 +320,10 @@ color:var(--color-title-beach);
     align-items: center;
 }
 
+#night-count {
+    font-size: 3rem;
+}
+
 #night #answers {
     background-color: var(--color-answers-night);
 }
@@ -339,7 +350,7 @@ color:var(--color-title-beach);
     color:  #000;
 }
 #final p {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 

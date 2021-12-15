@@ -150,7 +150,6 @@ function getNight(res) {
   content.id = "content-night";
   content.innerHTML = res.data;
   content.id = 'content-night';
-  const audioHome = document.getElementById('night-music');
   const header = document.getElementById('night-header') ;
   header.style.backgroundImage = 'url("images/night-bg2.jpg")';
   header.style.backgroundRepeat ='no-repeat';
