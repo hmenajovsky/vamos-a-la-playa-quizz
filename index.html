@@ -11,33 +11,32 @@
   </head>
   <body>      
       <main id="content-main">
-        <header>     
-          <div id="welcome">
-            <h1>Vamos a la playa !</h1>
-            <p id="question-home">You have some  bases in spaninsh and you feel like testing if you are ready to be quite fluent 
+        <header >     
+            <h1 id="logo">
+              <img src="images/vamos2.webp" alt="">
+            </h1>   
+            <div>                  
+            <p id="intro">You have some  bases in spaninsh and you feel like testing if you are ready to be quite fluent 
               by traveling to Barcelona ? <br>
-              Ready ? Pues, vamos a la playa ... and let's play  in <span id="home-count"></span> seconds
-            </p>      
-        </div>   
-          <img src="images/vamos2.webp" alt="">     
-          <div id="images-home">
-            <img src="images/car.webp"  width="40%" alt="">
-            <img src="images/tourist.webp" width="20%" alt="">      
-        </div>
+              Pues, vamos a la playa ... enter your nick and let's click on start when ready <span id="home-count"></span> seconds
+            </p>
+            <p id="enter">
+            <input id="player-name" type="text" placeholder="your name"> 
+            <button id="hotel-page" class="next">START</button>   
+            </p>
+            </div>   
       </header>
-        <div id ="enter">        
-          <p>Enter your name</p>
-          <input id="player-name" type="text" placeholder="your name">     
-          <button id="hotel-page">load page html</button>          
-        </div>   
-       
+      <div id="images-home">
+          <img src="images/tourist.webp" width="20%" alt="">      
+          <img src="images/car.webp"  width="40%" alt="">
+      </div>  
         <div id="home-music">
           <audio
           autoplay
-          src="">
+          src="images/vamosalaplaya.mp3">
         </audio>
         </div>
-      </main>
+    </main>
  
   </body>
 </html>
