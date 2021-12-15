@@ -1,0 +1,19 @@
+:root {  
+  --color-main-home: whitesmoke;
+  --color-nav-home: #f8f0e3;
+  --color-main-hotel : #7dffff;
+  --color-title-hotel: #000;
+  --color-main-beach:#fde5c1; 
+  --color-title-beach: #000;
+  --color-main-night: #080715; /* by default */
+  --color-answers-hotel: #4c8a93;
+  --color-answers-beach:#fde5c1; /* by default */
+  --color-answers-night:#000; 
+  --color-answer-beach : rgba(194,67,65, 0.8); /*by default */
+  --color-all-question: #FFF;
+  --space-s: 5px;
+  --space-xs: 2px:
+  --space-m: 20px:
+  --space-l: 40px:
+  --space-xl: 60px:
+}
