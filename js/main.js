@@ -1,19 +1,14 @@
 let question = 0;
 const rightAnswers = [1, 3, 2]; 
 let alreadyAnswered = false;
-const storedPlayers = window.localStorage;
-const players = [];
-if (storedPlayers !== {}) {
-  let player1 = storedPlayers.getItem('player1');
-  players.push(player1);
-}
 
-const input = document.getElementById('player-name');
+ const players = [];
+
+const input = document.getElementById('player-name'); 
 
 const btnHotel = document.getElementById('hotel-page');
 const homeCountDown = document.getElementById('home-count');
 const content = document.getElementById('content-main');
-//const input = document.getElementById('enter');
 let score = 0;
 
 btnHotel.onclick = loadHTMLContentHotel;
@@ -21,23 +16,18 @@ btnHotel.onclick = loadHTMLContentHotel;
 timerHome(0)
 .then((id) => {
   clearInterval(id);
-  //alert("ready to play ?");
-  homeCountDown.textContent = 'click OK if ready to play';
   loadHTMLContentHotel();
   timerHotel(0)
   .then((id) => {
     clearInterval(id);
-    //alert("ready to go next level ?");
     loadHTMLContentBeach();
     timerBeach(0)
     .then((id) => {
       clearInterval(id);
-      //alert("ready to go next level?");
       loadHTMLContentNight();
       timerNight(0)
       .then((id) => {
         clearInterval(id);
-        //alert("ready to go to results page ?");
         loadHTMLContentFinal();
       });
   })
@@ -46,13 +36,9 @@ timerHome(0)
 
 
 function loadHTMLContentHotel() {
-  let inputValue = input.value;
-  players.push(inputValue);
-  console.log('inputValue :>> ', inputValue);
-  storedPlayers.setItem('player1', inputValue);
-  const player1 = storedPlayers.getItem('player1');
-  console.log(player1);
-  console.log('players',players);
+ let inputValue = input.value;
+ players.push(inputValue); 
+
   axios
     .get("../templates/hotel.html", {'crossdomain': true})
     .then(getHotel)
@@ -62,16 +48,10 @@ function loadHTMLContentHotel() {
 function getHotel(res) {
   content.innerHTML = res.data;  
   content.id = "content-hotel";
-  const btnBeach = document.getElementById('beach-page'); // screen suivant
+
+  const btnBeach = document.getElementById('beach-page'); 
   btnBeach.onclick = loadHTMLContentBeach;
-  console.log("players in hotel", players);
   handleAnswers();  
- /* timerHotel(0).then(intervalId => {
-    clearInterval(intervalId);
-    hotelCountDown.textContent = 'Sorry, the delay is over, let\'s start the second level: Donde esta la playa';  
-    alert('Sorry, the delay is over, click ok to continue');
-    btnBeach.click();
-  });*/
 }
 
 
@@ -87,48 +67,14 @@ function getBeach(res) {
   question = 1;
   content.id = 'content-beach';
   content.innerHTML = res.data;
-  /*const btnCity = document.getElementById("city-page"); // screen suivant
-  btnCity.onclick = loadHTMLContentCity;*/   
   content.id = 'content-beach';
-  //const beachCountDown = document.getElementById('beach-count');
   const header = document.getElementById('beach-header') ;
   header.style.backgroundImage = 'url("../media/images/holidays-bg-2.jpg")';
   header.style.backgroundRepeat ="no-repeat";
-  const btnNight = document.getElementById("night-page"); // screen suivant
+  const btnNight = document.getElementById("night-page"); 
   btnNight.onclick = loadHTMLContentNight;
-  //remove button 1
   handleAnswers();
-  /*timerBeach(0).then(intervalId => {
-    clearInterval(intervalId);
-    alert('Sorry, the delay is over, click ok to continue');
-    //btnCity.click();
-    btnNight.click();
-  });*/
 }
-
-
-/*function loadHTMLContentCity() {
-  axios
-    .get("./templates/city.html")
-    .then(getCity)
-    .catch(err => console.error(err));
-}*/
-
-/*function getCity(res) {
-  question = 2;
-  content.innerHTML = res.data;
-  content.style.backgroundColor = "blue";
-  content.style.color = "#FFF";
-  const btnNight = document.getElementById("night-page");
-  btnNight.onclick = loadHTMLContentNight;
-  //remove button 1
-  handleAnswers();
-  timer(5).then(intervalId => {
-    clearInterval(intervalId);
-    alert('Sorry, the delay is over, click ok to continue');
-    btnBeach.click();
-  });
-}*/
 
 
 function loadHTMLContentNight() {
@@ -141,7 +87,6 @@ function loadHTMLContentNight() {
 
 function getNight(res) {
   question = 2;
-  content.id = "content-night";
   content.innerHTML = res.data;
   content.id = 'content-night';
   const header = document.getElementById('night-header') ;
@@ -150,14 +95,7 @@ function getNight(res) {
   header.style.backgroundPosition = 'left' ;
   const btnFinal = document.getElementById("final-page");
   btnFinal.onclick = loadHTMLContentFinal;   
-
-  //remove button 1
   handleAnswers();
-  /*timerNight(0).then(intervalId => {
-    clearInterval(intervalId);
-    alert('Sorry, the delay is over, click ok to see the results');
-    btnFinal.click();    
-  })*/
 }
 
 
@@ -169,21 +107,29 @@ function loadHTMLContentFinal() {
 }
 
 function getFinal(res) {
-  console.log("players in final", players);
   content.innerHTML = res.data;
-  content.id = 'content-results';
+  content.id = 'content-results'; 
+  content.style.backgroundColor = '#e6e9ee';
   const player = document.getElementById("player");
-  player.textContent = `Hey ${players[0]}, thanks for tying, your score is ${score}`;
+  player.textContent = `Hey ${players[0]}, thanks for playing, your score is ${score}`;
   const results = document.getElementById("results");
-  console.log(results);
-  results.textContent =
-    score === 0 | score === 1
-      ? `Sorry ${players[0]}, you might have a very bad trip ! ;)`
-      : `Well done ${players[0]}, you're ready to travel`;
+  const applauseSound = document.getElementById('applause');
+  const failSound = document.getElementById('fail');
+  //const averageSound = document.getElementById('success');
+  const averageSound = document.getElementById('average');
+  if (score === 0 || score === 1) {
+    results.textContent = `Sorry ${players[0]}, you might have a very bad trip ! ;)`;
+    failSound.play();
+  } else if (score === 2 ) {
+    results.textContent = `hmmm, well done ${players[0]}, but you shoud practise a bit more ! `;
+    averageSound.play();
+    } else {
+      results.textContent =  `Congrats ! We're very impressed :) ${players[0]}, you're ready to travel`;
+      applauseSound.play();
+    } 
 
   const btnRestart = document.getElementById("restart");
-  //btnRestart.onclick = loadHTMLContentHome;
-  btnRestart.onclick = loadHTMLContentHome
+  btnRestart.onclick = loadHTMLContentHome;
 
 }
 
@@ -195,8 +141,7 @@ function loadHTMLContentHome() {
 }
 
 function restart() {
-  location.reload();
-}
+  location.reload();}
 
 function handleAnswers() {
   const answer1 = document.getElementById('p1');
@@ -212,7 +157,6 @@ function handleAnswers() {
 function checkAnswer(e) {
     const icon = e.target.previousElementSibling;
   if (e.target.id === `p${rightAnswers[question]}`) {  
-    console.log('on the right answer before score should be false :>> ', alreadyAnswered);    
     /*icon.classList.add('fas','fa-check-circle','success');*/
     icon.classList.toggle('fas'); 
     icon.classList.toggle('fa-check-circle'); 
@@ -235,15 +179,6 @@ function checkAnswer(e) {
   return score;
 }
 
-/*function timer(limit, callback) {
-  let count = 0;
-  let intervalId = setInterval(() => {
-    count++;
-    console.log(count);
-    if (count === limit) callback();
-  }, 1000);
-  if (count > limit) clearInterval(intervalId);
-}*/
 
 function timerHome(limit) {
   return new Promise((resolve, reject) => {
@@ -251,7 +186,7 @@ function timerHome(limit) {
     let id = setInterval(() => {
      count--;     
      homeCountDown.textContent = count;
-      if (count === 5) btnHotel.style.display='inline-block';
+      if (count === 5) btnHotel.style.display='block';
       if (count === limit) resolve(id);      
     }, 1000);
   });
@@ -265,9 +200,9 @@ function timerHotel(limit) {
      const hotelCountDown = document.getElementById('hotel-count'); 
      const btnBeach = document.getElementById('beach-page');
      if (hotelCountDown !== null) {
-     hotelCountDown.textContent = count;
+     hotelCountDown.textContent = ' ' +count + ' ';
     } 
-     if (count === 5 && btnBeach !==null) btnBeach.style.display='inline-block';
+     if (count === 5 && btnBeach !==null) btnBeach.style.display='block';
       if (count === limit) resolve(id);
     }, 1000);
   });
@@ -281,7 +216,7 @@ function timerBeach(limit) {
      const btnNight = document.getElementById('night-page');
 
      if (beachCountDown !== null) {
-      beachCountDown.textContent = count;
+      beachCountDown.textContent = ' ' +count + ' ';
      } 
      if (count === 5 && btnNight !== null) btnNight.style.display='inline-block';
       if (count === limit) resolve(id);
@@ -298,15 +233,11 @@ function timerNight(limit) {
      const btnFinal = document.getElementById('final-page');
 
      if (nightCountDown !== null) {
-      nightCountDown.textContent = count;
+      nightCountDown.textContent = ' ' + count + ' ';
     }
-    if (count === 5 && btnFinal !== null) btnFinal.style.display='inline-block';
+    if (count === 5 && btnFinal !== null) btnFinal.style.display='block';
 
       if (count === limit) resolve(id);
     }, 1000);
   });
 }
-
-
-
-

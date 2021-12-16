@@ -1,20 +1,26 @@
 <div class="page" id="final">
         <header id="results-header"> 
-                <h1>Results</h1>   
+                <div class="question">                
+                        <h1>Final results</h1>          
+                        <p id="player"><p>                               
+                </div>
+        </header>
+        <section class="results">
                 <div id="image-results">        
                         <img src="media/images/ranking.jfif" alt="">
                 </div>
-                <div>              
-                    <p id="player"></p>         
-                    <p id="results"></p>        
-                </div>
-                <div class="button">
-                <button id="restart">restart the game</button>    
-                </div>   
-            </header>
-            <audio src="#" autoplay id="award"></audio>
-            <audio src="#" autoplay id="game-over"></audio>
-        
+                <p id="results"></p> 
+        </section> 
+        <footer id="start" >  
+                <p class="play">Click to play again</p>  
+                        <div class="button">
+                             <button id="restart">RESTART</button>    
+                        </div>                           
+                <audio src="../media/audios/applause.wav"  id="applause"></audio>
+                <audio src="../media/audios/fail.wav"  id="fail"></audio>
+                <audio src="../media/audios/success.wav"  id="success"></audio>
+                <audio src="../media/audios/average.wav"  id="average"></audio>
+        </footer> 
 </div>
 
 

@@ -1,50 +1,48 @@
 <div class="page" id="hotel">
-    <header>   
-        <div id="question">                
-            <h1>Buscando el hotel</h1>          
-            <p id = "question-hotel">
-                Estoy en la rambla de Cataluña, a quien le puedo preguntar donde esta el hotel <br>
-                Click on start after  : <span id="hotel-count"></span> 
-                <div class="button">
-                        <button id="beach-page" class="next">START</button>
-                </div>                            
-    </p>
+    <header id ="hotel-header">   
+        <div class="question">                
+            <h1>Buscando el hotel</h1> 
+                <p id ="question-hotel">
+                    Estoy en la rambla de Cataluña, a quien le puedo preguntar donde esta el hotel ? <br>
+                </p>
         </div>
     <div id="image-questions"> 
-            <img src="media/images/dodo.webp" alt="">       
+            <img src="media/images/dodo.webp" alt="">     
+            <img src="media/images/colon.webp" width="30%" alt="">  
             <img src="media/images/rambla.gif" alt="">
-            <img src="media/images/colon.webp" width="30%" alt="">
     </div>
     </header>
     <div id="answers">
         <div class="answer" id="answer1">  
             <i></i>              
-            <p id="p1">al camarero cuando termine de servir la sidra</p>
-            <img src="media/images/camarero.webp" width="20%"alt="">
+            <p id="p1">Al camarero cuando termine de servir la sidra</p>
         </div>
         <div class="answer" id="answer2">
             <i></i>
-            <p id="p2">a esta mujer con la falda muy corta y que me dice " hola Papi !"</p>
-            <div style="background: url('media/images/camera.webp') no-repeat"><img src="media/images/hot.webp" width="50%" alt=""></div>
+            <p id="p2">A esta mujer llevando una mini falda y que me dice " hola Papi !"</p>
         </div>
         <div class="answer" id="answer3">
             <i></i>
-            <p id="p3">e pregunto a esta mujer bailando flamenco</p>
-            <img src="media/images/flamenca.webp" width="20%"alt="">
+            <p id="p3">Le pregunto a esta mujer bailando flamenco</p>
         </div>
         <div class="answer" id="answer4">
             <i></i>
-            <p id="p4">voy para la plaza de toros, creo que queda cerca </p>
-            <img src="media/images/toro.webp" width="20%"alt="">
+            <p id="p4">Llego al final y la estatua de Colón me indica la dirección</p>
         </div>
     </div>
+    <footer id="start" >  
+        <p class="play">Click to the next level before <span id="hotel-count"></span> seconds</p>
+        <div class="button">
+            <button id="beach-page" class="next">NEXT</button>  
+        </div>                           
+        <div id="hotel-music">
+            <audio  autoplay src="media/audios/flamenco.mp3"></audio>
+        </div> 
+        <p id="player"></p>
+        <audio src="#" autoplay id="win-sound"></audio>
+        <audio src="#" autoplay id="lose-sound"></audio>
+    </footer>    
 </div>
-<div class="button">
-    <button id="beach-page" class="next">load beach page html</button>
-</div>
-<p id="player"></p>
-<audio src="#" autoplay id="win-sound"></audio>
-<audio src="#" autoplay id="lose-sound"></audio>
 
 
 <!-- ul.List>li.item*44 -->

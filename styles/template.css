@@ -5,13 +5,73 @@
     background-image: url('../media/images/holidays-bg.jpg');
     background-size: cover;
     background-position-y: bottom;
-    background-repeat: repeat;
+    background-position-x: left;
+    background-repeat: no-repeat;
     height: 120vh;
-    /*background-color: rgb(255,172,29);*/    
     position: relative;   
 }
 
 #content-main header {
+    display: flex;
+    justify-content: start;
+    font-size: 1rem;
+    background-color: #000; /*var(--color-count-home); */
+    width: 100%;
+    color: #FFF;
+    position: fixed;
+    height: 90px;
+    padding: var(--space-l); 
+}
+
+
+#images-home {
+    width: 70%;
+    position: absolute;
+    bottom:0;
+    right: 0;
+}
+
+#intro {
+width: 50%;
+position: absolute;
+bottom:50%;
+right: 0;
+padding: 20px;
+}
+
+#intro p {
+    font-size: 1.5rem;;
+}
+
+.play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #000; /*var(--color-count-home); */
+    width: 50%;
+    color: #FFF;
+    z-index:1
+}
+
+h1#logo {
+    margin-left: 2%;
+}
+
+h1#logo img {
+width: 60%;
+}
+
+#question-home {
+    margin-right: 5%;
+}
+
+#home-count {
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+footer#start {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,32 +80,29 @@
     width: 100%;
     color: #FFF;
     position: fixed;
-    height: 230px;
+    bottom:0;
+    height: 50px;
     padding: var(--space-l); 
 }
 
-p#intro {
-    text-align: center;    
+img#tourist {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 50px;
 }
 
-h1#logo {
-margin-right: 30%;
-}
-
-#home-count {
-    font-weight: 300;
-    font-size: 3rem;
-}
-
-p#enter {
-    text-align: center;
+img#car {
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 input#player-name {   
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
-    font-size: 1.5rem; 
+    font-size: 1rem; 
 }
 
 
@@ -57,19 +114,6 @@ input#player-name {
     background-color:  var(---color-nav-home);
 }
 
-#images-home{
-    margin-bottom: 5vh;
-    width: 100%;
-    position:fixed;
-    bottom : 60%;
-    right: 0; 
-}
-
-#images-home img {
-    position: absolute;
-    top:0;
-    right:0;
-}
 
 button.next {
     display: none;
@@ -77,7 +121,8 @@ button.next {
     color: #000;
     cursor: pointer;
     border: none;
-    padding: 16px 32px;
+    padding: 0.6rem 2rem;
+    margin-left: 5%;
     text-decoration: none;
     font-size: 1.5rem;
 }
@@ -95,20 +140,21 @@ button#restart{
 
 /* common questions styles */
 
-#question {
-    background-color: var(--color-all-question);    
+.question {
+    background-color: var(--color-all-question); 
+    color: var(--color-text-question);   
     width: 100%;
     text-align: center;;
+    padding: 20px;
 }
 
-#question p {
-    font-size: 1.5rem;
+.question p {
     margin-bottom: var(--space-l); 
     font-weight: 100;   
-    color: var(--color-text-question);
+    font-size: 1.5rem;   
 }
 
-#question h1 {
+.question h1 {
     color: var(--color-text-question);  
     margin-bottom: 10px;
     font-size: 2.5rem;
@@ -124,7 +170,7 @@ button#restart{
    flex-wrap: wrap; 
    gap: 10px;
    justify-content: space-around;
-   padding-bottom: 5vh; 
+   padding-bottom: calc(50px + 1.5rem);
  }
 
  
@@ -145,6 +191,10 @@ button#restart{
     font-weight: 100;  
     width: 100%;
     cursor: pointer;
+}
+
+i {
+    padding: 10px;
 }
 
  .success {
@@ -176,30 +226,36 @@ button#restart{
 
 #content-hotel {   
     background-color:var(--color-main-hotel);
-}
-
-#hotel header {
+    height: 120vh;
     background-image: url('../media/images/hotel-bg.jpg');
     background-size: contain;
-    background-position: left;
-    background-repeat: no-repeat;  
-    margin-bottom: var(--space-m); 
+    background-position: right;
+    background-repeat: no-repeat; 
 }
 
 
 #hotel header {
+    margin-bottom: var(--space-m); 
     display: flex;
     flex-direction: column;
     align-items: center;
+    width:100%;
+    /*position: fixed;
+    top:0;
+    z-index:1*/
+    height: 60%;
 }
+
 
 #hotel-count {
     font-size: 3rem;
+    white-space: pre;
 }
 
 
  #hotel #answers {
-    background-attachment: var(--color-answers-hotel);        
+    background-color: var(--color-answers-hotel);    
+    margin-top: 15vh;
  }
 
 
@@ -208,7 +264,7 @@ button#restart{
 }
 
 #hotel #answer2 {
-    background-color: #9f9370  ;
+    background-color: #9f9370 ;
 }
 
 #hotel #answer3 {
@@ -216,14 +272,8 @@ button#restart{
 }
 
 #hotel #answer4 {
-    background-color: #fed468 ;
+    background-color: #fee123 ;
 }
-
-
-/*.button-next {
-    display: flex;
-    justify-content: center;
-}*/
 
 /* beach styles */
 
@@ -238,18 +288,14 @@ button#restart{
     background-position: left ;
     background-repeat: repeat; 
     margin-bottom: var(--space-m); 
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
 }
 
 #beach-count {
     font-size: 3rem;
-}
-
-
-#beach header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    white-space: pre;
 }
 
 .image-beach {
@@ -286,6 +332,7 @@ color:var(--color-title-beach);
 
 #beach #answer2 {
     background-color: #9cc6fc;
+
 }
 
 #beach #answer3 {
@@ -294,6 +341,7 @@ color:var(--color-title-beach);
 
 #beach #answer4 {
     background-color:#fd552a;
+
 }
 
 
@@ -321,6 +369,7 @@ color:var(--color-title-beach);
 
 #night-count {
     font-size: 3rem;
+    white-space: pre;
 }
 
 #night #answers {
@@ -329,31 +378,34 @@ color:var(--color-title-beach);
 
 
 #night #answer1 {
-    background-color: #42075b;
+    background-color: #522c91;
+    #0e0f24
 }
 
 #night #answer2 {
-    background-color: #bb56cc;;
+    background-color: #afde2a;
 }
 
 #night #answer3 {
-    background-color:#940e2d;
+    background-color:#ad48bc;
+
 }
 
 #night #answer4 {
-    background-color:#61b5da;
+    background-color:#ac0b1f;
+
 }
 /* final styles */
 
 #final h1 {
-    color:  #000;
+    color:  #FFF;
 }
 #final p {
     font-size: 2.5rem;
 }
 
 
-#final header {
+.results {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -361,7 +413,17 @@ color:var(--color-title-beach);
 
 
 #content-results {
-    background-color: #e6e9ee;
     height: 100vh;
+    background-color: #e6e9ee;
+
+}
+
+#results-count {
+    font-size: 3rem;
+    white-space: pre;
+}
+
+button#restart {
+    font-size:0.9rem;
 }
 

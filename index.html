@@ -15,27 +15,33 @@
             <h1 id="logo">
               <img src="media/images/vamos2.webp" alt="">
             </h1>   
-            <div>                  
-            <p id="intro">You have some  bases in spaninsh and you feel like testing if you are ready to be quite fluent 
+            <div id="question-home " class="question">                  
+            <p>You have some  bases in spaninsh and you feel like testing if you are ready to be quite fluent 
               by traveling to Barcelona ? <br>
-              Pues, vamos a la playa ... enter your nick and let's click on start when ready <span id="home-count"></span> seconds
-            </p>
-            <p id="enter">
-            <input id="player-name" type="text" placeholder="your name"> 
-            <button id="hotel-page" class="next">START</button>   
             </p>
             </div>   
       </header>
-      <div id="images-home">
-          <img src="media/images/tourist.webp" width="20%" alt="">      
-          <img src="media/images/car.webp"  width="40%" alt="">
-      </div>  
-        <div id="home-music">
-          <audio
-          autoplay
-          src="media/audios/vamosalaplaya.mp3">
-        </audio>
+      <div id="intro" class="play">
+        <p>
+            Pues, vamos a la playa ... enter your nick and let's click on START button below when ready in <span id="home-count"></span> seconds
+        </p>
+      </div>
+        <div id="images-home">
+            <img id="tourist" src="media/images/tourist.webp" width=30%" alt="">      
+            <img id="car" src="media/images/car.webp"  width="60%" alt="">  
         </div>
+      </div>
+      <footer id="start" class="play">   
+          <input id="player-name" type="text" placeholder="your name"> 
+          <div class="button">
+                  <button id="hotel-page" class="next">START</button>  
+          </div>                           
+          <div id="hotel-music">
+              <audio  autoplay src="media/audios/vamosalaplaya.mp3"></audio>
+          </div> 
+       </footer>  
+      <div id="images-home">
+      </div>  
     </main>
  
   </body>
