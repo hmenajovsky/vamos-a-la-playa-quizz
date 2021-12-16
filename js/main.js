@@ -121,7 +121,7 @@ function getFinal(res) {
     results.textContent = `Sorry ${players[0]}, you might have a very bad trip ! ;)`;
     failSound.play();
   } else if (score === 2 ) {
-    results.textContent = `hmmm, well done ${players[0]}, but you shoud practise a bit more ! `;
+    results.textContent = `hmmm, well done ${players[0]}, but you shoud practice a bit more ! `;
     averageSound.play();
     } else {
       results.textContent =  `Congrats ! We're very impressed :) ${players[0]}, you're ready to travel`;
