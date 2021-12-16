@@ -54,7 +54,7 @@ function loadHTMLContentHotel() {
   console.log(player1);
   console.log('players',players);
   axios
-    .get("../templates/hotel.html")
+    .get("../templates/hotel.html", {'crossdomain': true})
     .then(getHotel)
     .catch(err => console.error(err));
 }
@@ -62,9 +62,6 @@ function loadHTMLContentHotel() {
 function getHotel(res) {
   content.innerHTML = res.data;  
   content.id = "content-hotel";
-  //const hotelCountDown = document.getElementById('question-hotel');
-  //console.log(hotelCountDown);
-
   const btnBeach = document.getElementById('beach-page'); // screen suivant
   btnBeach.onclick = loadHTMLContentBeach;
   console.log("players in hotel", players);
@@ -250,7 +247,7 @@ function checkAnswer(e) {
 
 function timerHome(limit) {
   return new Promise((resolve, reject) => {
-    let count = 6;
+    let count = 10;
     let id = setInterval(() => {
      count--;     
      homeCountDown.textContent = count;
@@ -262,7 +259,7 @@ function timerHome(limit) {
 
 function timerHotel(limit) {
   return new Promise((resolve, reject) => {
-    let count = 10;
+    let count = 30;
     let id = setInterval(() => {
      count--;
      const hotelCountDown = document.getElementById('hotel-count'); 
@@ -277,7 +274,7 @@ function timerHotel(limit) {
 }
 function timerBeach(limit) {
   return new Promise((resolve, reject) => {
-    let count = 10;
+    let count = 30;
     let id = setInterval(() => {
      count--;
      const beachCountDown = document.getElementById('beach-count');
@@ -294,7 +291,7 @@ function timerBeach(limit) {
 
 function timerNight(limit) {
   return new Promise((resolve, reject) => {
-    let count = 10;
+    let count = 30;
     let id = setInterval(() => {
      count--;
      const nightCountDown = document.getElementById('night-count');
