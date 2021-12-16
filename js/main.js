@@ -54,7 +54,7 @@ function loadHTMLContentHotel() {
   console.log(player1);
   console.log('players',players);
   axios
-    .get("./templates/hotel.html")
+    .get("../templates/hotel.html")
     .then(getHotel)
     .catch(err => console.error(err));
 }
@@ -67,9 +67,6 @@ function getHotel(res) {
 
   const btnBeach = document.getElementById('beach-page'); // screen suivant
   btnBeach.onclick = loadHTMLContentBeach;
-  const audioHome = document.getElementById('home-music');
-  audioHome.src = '';
-  //remove button 1
   console.log("players in hotel", players);
   handleAnswers();  
  /* timerHotel(0).then(intervalId => {
@@ -84,7 +81,7 @@ function getHotel(res) {
 function loadHTMLContentBeach() {
   alreadyAnswered = false;
   axios
-    .get("./templates/beach.html")
+    .get("../templates/beach.html")
     .then(getBeach)
     .catch(err => console.error(err));
 }
@@ -98,7 +95,7 @@ function getBeach(res) {
   content.id = 'content-beach';
   //const beachCountDown = document.getElementById('beach-count');
   const header = document.getElementById('beach-header') ;
-  header.style.backgroundImage = 'url("images/holidays-bg-2.jpg")';
+  header.style.backgroundImage = 'url("../media/images/holidays-bg-2.jpg")';
   header.style.backgroundRepeat ="no-repeat";
   const btnNight = document.getElementById("night-page"); // screen suivant
   btnNight.onclick = loadHTMLContentNight;
@@ -140,7 +137,7 @@ function getBeach(res) {
 function loadHTMLContentNight() {
   alreadyAnswered = false;
   axios
-    .get("./templates/night.html")
+    .get("../templates/night.html")
     .then(getNight)
     .catch(err => console.error(err));
 }
@@ -151,7 +148,7 @@ function getNight(res) {
   content.innerHTML = res.data;
   content.id = 'content-night';
   const header = document.getElementById('night-header') ;
-  header.style.backgroundImage = 'url("images/night-bg2.jpg")';
+  header.style.backgroundImage = 'url("../media/images/night-bg2.jpg")';
   header.style.backgroundRepeat ='no-repeat';
   header.style.backgroundPosition = 'left' ;
   const btnFinal = document.getElementById("final-page");
@@ -169,7 +166,7 @@ function getNight(res) {
 
 function loadHTMLContentFinal() {
   axios
-    .get("./templates/final.html")
+    .get("../templates/final.html")
     .then(getFinal)
     .catch(err => console.error(err));
 }
@@ -195,7 +192,7 @@ function getFinal(res) {
 
 function loadHTMLContentHome() {
   axios
-    .get("./index.html")
+    .get("../index.html")
     .then(restart)
     .catch(err => console.error(err));
 }
@@ -230,14 +227,14 @@ function checkAnswer(e) {
     } else {
     }  
     const winSound = document.getElementById('win-sound');
-    winSound.src = 'images/win.wav';
+    winSound.src = 'media/audios/win.wav';
   } else { 
     //icon.classList.add('fas','fa-times-circle','danger'); 
     icon.classList.toggle('fas'); 
     icon.classList.toggle('fa-times-circle'); 
     icon.classList.toggle('danger');  
     const loseSound = document.getElementById('lose-sound');
-    loseSound.src = 'images/lose.wav';  }
+    loseSound.src = 'media/audios/lose.wav';  }
   return score;
 }
 

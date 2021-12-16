@@ -2,7 +2,7 @@
 /* HOME styles */
 
 #content-main {
-    background-image: url('../images/holidays-bg.jpg');
+    background-image: url('../media/images/holidays-bg.jpg');
     background-size: cover;
     background-position-y: bottom;
     background-repeat: repeat;
@@ -179,7 +179,7 @@ button#restart{
 }
 
 #hotel header {
-    background-image: url('../images/hotel-bg.jpg');
+    background-image: url('../media/images/hotel-bg.jpg');
     background-size: contain;
     background-position: left;
     background-repeat: no-repeat;  
@@ -233,7 +233,7 @@ button#restart{
 
 
 #beach-header {
-    background-image: url('../images/beach.png');
+    background-image: url('../media/images/beach.png');
     background-size: cover;
     background-position: left ;
     background-repeat: repeat; 
@@ -261,7 +261,7 @@ button#restart{
 
 
 #beach header {
-    background-image: url('../images/city-bg.jpg');
+    background-image: url('../media/images/city-bg.jpg');
     background-size: contain;
     background-position: left ;
     background-repeat: repeat;  
